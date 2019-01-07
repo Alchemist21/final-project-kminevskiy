@@ -1,8 +1,12 @@
 ### Youchallenge
 
-To start your Phoenix server:
+This guide assumes you'd like to install whole application and run it on your local machine. In case you don't want to go through every step and spend time installing/configuring packages, let me know and I'll spin up a server for you so you can play around with this application.
 
+To start your Phoenix server:
+  * Install hex (Elixir package manager) with `mix local.hex`
+  * Install Phoenix package with `mix archive.install hex phx_new 1.4.0`
   * Install dependencies with `mix deps.get`
+  * Install Postgres DBMS (depends on your OS)
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `cd assets/frontend && npm install`
   * Run `source .env` inside `youchallenge` directory (the account inside that file is provided for your convenience, but could be replaced with your own account. It is used for contract deployments.)
