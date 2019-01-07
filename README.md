@@ -13,6 +13,8 @@ To start your Phoenix server:
   * Start Phoenix endpoint with `mix phx.server`
   * (In a separate terminal window) start Node.js server with `cd assets/frontend && npm start`
 
+The Truffle project itself is located inside `youchallenge/assets/frontend/src/contracts`. From there you can run `truffle development` console and compile, migrate and test contracts.
+
 Now you can visit [`localhost:3000`](http://localhost:3000) from your browser.
 
 ### Implementation and decisions
