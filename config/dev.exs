@@ -53,3 +53,7 @@ config :youchallenge, Youchallenge.Repo,
   database: "youchallenge_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :youchallenge,
+  seed: "2d89c2f53c8976be49bdacac3aac5d500d8ffeb915df5aad12960b96cb3a0d67",
+  pk: "0x5637D2b3e3019735836dD511408b33d9459B19e7"
