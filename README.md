@@ -1,6 +1,10 @@
 ### Youchallenge
 
-This guide assumes you'd like to install whole application and run it on your local machine. In case you don't want to go through every step and spend time installing/configuring packages, let me know and I'll spin up a server for you so you can play around with this application.
+Challenge your friends and relatives to do something useful, let others contribute to these challenges to motivate them and let people get better at things they always wanted to do, but "never had time".
+
+This project explores the possibility (and how it can be implemented in practice) of merging web3 and web2 concepts for fun and profit. It's the type of experiment where the question was "what if I do this...". For example, "what if I rely on a traditional backend AND use blockchain for some operations?". Read more about my decisions below ("Implementation and decisions").
+
+This guide assumes you'd like to install whole application and run it on your local machine. While it might be easy to do for someone familiar with Elixir/Phoenix ecosystem, it might cause issues for beginners. In case you don't want to go through every step and spend time installing/configuring packages, let me know and I'll spin up a server for you so you can play around with this application.
 
 To start your Phoenix server:
   * Install hex (Elixir package manager) with `mix local.hex`
@@ -8,10 +12,18 @@ To start your Phoenix server:
   * Install dependencies with `mix deps.get`
   * Install Postgres DBMS (depends on your OS)
   * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets/frontend && npm install`
-  * Run `source .env` inside `youchallenge` directory (the account inside that file is provided for your convenience, but could be replaced with your own account. It is used for contract deployments.)
   * Start Phoenix endpoint with `mix phx.server`
+
+To start Node server:
+  * Install Node.js dependencies with `cd assets/frontend && npm install`
   * (In a separate terminal window) start Node.js server with `cd assets/frontend && npm start`
+
+You don't need to run ganache locally to interact with application - everything is deployed to Ropsten testnet and testing account with funds is provided with the application.
+
+To run tests:
+  * `cd assets/frontend/src/contracts`
+  * ganache-cli
+  * truffle test
 
 The Truffle project itself is located inside `youchallenge/assets/frontend/src/contracts`. From there you can run `truffle development` console and compile, migrate and test contracts.
 
