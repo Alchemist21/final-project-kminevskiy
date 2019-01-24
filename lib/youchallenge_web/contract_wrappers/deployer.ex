@@ -16,7 +16,7 @@ defmodule ContractWrappers.Deployer do
 
   def deploy_challenge_contract(args) do
     hex_key =
-      System.get_env("DEPLOYER_SEED")
+      Application.get_env(:youchallenge, :seed)
       |> BitHelper.from_hex()
 
     hex_data =
@@ -43,7 +43,7 @@ defmodule ContractWrappers.Deployer do
 
   def deploy_challenger_accounts() do
     hex_key =
-      System.get_env("DEPLOYER_SEED")
+      Application.get_env(:youchallenge, :seed)
       |> BitHelper.from_hex()
 
     hex_data = Repo.get_by(Contract, name: "challenger_accounts").data
@@ -117,7 +117,7 @@ defmodule ContractWrappers.Deployer do
   end
 
   def decode_account_nonce() do
-    account = System.get_env("DEPLOYER_ACCOUNT")
+    account = Application.get_env(:youchallenge, :pk)
     {:ok, lnh} = Eth.eth_get_transaction_count(account, "latest")
 
     {latest_nonce, _} =

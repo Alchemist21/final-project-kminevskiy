@@ -128,7 +128,7 @@ defmodule ContractWrappers.ChallengerAccounts do
   end
 
   def hex_pk() do
-    System.get_env("DEPLOYER_SEED")
+    Application.get_env(:youchallenge, :seed)
     |> BitHelper.from_hex()
   end
 
