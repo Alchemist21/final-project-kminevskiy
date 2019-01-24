@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     const {web3, account} = this.state;
     if (!this.state.web3) {
-      return  <div>Metamask is loading...</div>
+      return  <div>Metamask is loading... Also, check if it is unlocked.</div>
     } else {
       return (
         <Router>
