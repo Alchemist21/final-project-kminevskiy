@@ -6,6 +6,8 @@ This project explores the possibility (and how it can be implemented in practice
 
 This guide assumes you'd like to install whole application and run it on your local machine. While it might be easy to do for someone familiar with Elixir/Phoenix ecosystem, it might cause issues for beginners. In case you don't want to go through every step and spend time installing/configuring packages, let me know and I'll spin up a server for you so you can play around with this application.
 
+`deployed_addresses.txt` file shows one example challenge contract. By now it's probably expired and you won't be able to do much with it. The idea is that every new challenge contract is deployed dynamically.
+
 To start your Phoenix server:
   * Install hex (Elixir package manager) with `mix local.hex`
   * Install Phoenix package with `mix archive.install hex phx_new 1.4.0`
