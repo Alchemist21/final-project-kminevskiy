@@ -8,6 +8,8 @@ This guide assumes you'd like to install whole application and run it on your lo
 
 `deployed_addresses.txt` file shows one example challenge contract. By now it's probably expired and you won't be able to do much with it. The idea is that every new challenge contract is deployed dynamically.
 
+I'm using Ropsten testnet for deployments.
+
 To start your Phoenix server:
   * Install hex (Elixir package manager) with `mix local.hex`
   * Install Phoenix package with `mix archive.install hex phx_new 1.4.0`
