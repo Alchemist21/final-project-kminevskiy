@@ -5,6 +5,7 @@ contract('Challenge', function(accounts) {
   const initiator = accounts[1];
   const contender = accounts[2];
 
+  /* deploys new contract and initializes new structure */
   it("initializes new data struct", async () => {
     const challenge = await Challenge.deployed();
 
@@ -13,6 +14,7 @@ contract('Challenge', function(accounts) {
     assert.equal(desc, "Walk 1 mile a day.", "description should match");
   });
 
+  /* contract state does not set to expired on initial deployment */
   it("should not be expired on initial deployment", async () => {
     const challenge = await Challenge.deployed();
 
@@ -21,6 +23,7 @@ contract('Challenge', function(accounts) {
     assert.equal(expired, false, "should not be expired");
   });
 
+  /* user should be able to extend contract that didn't expire / has not been completed */
   it("should be able to extend expiration", async () => {
     const challenge = await Challenge.deployed();
 
@@ -37,6 +40,7 @@ contract('Challenge', function(accounts) {
     assert.equal(eventEmitted, true, "should emit ExtendExpiration event");
   });
 
+  /* the contract can not be extended multiple times */
   it("should be extended only once", async () => {
     const challenge = await Challenge.deployed();
 
@@ -47,6 +51,7 @@ contract('Challenge', function(accounts) {
     }
   });
 
+  /* the contract returns the current balance */
   it("should return contract balance", async () => {
     const challenge = await Challenge.deployed();
 
@@ -55,6 +60,7 @@ contract('Challenge', function(accounts) {
     assert.equal(balance, 0, "should be initialy set to 0");
   });
 
+  /* the contract can receive raw ether */
   it("should be able to receive ether", async () => {
     const challenge = await Challenge.deployed();
 
@@ -65,6 +71,7 @@ contract('Challenge', function(accounts) {
     assert.equal(balance, 1, "should not be 0");
   });
 
+  /* the contract can be completed */
   it("should be able to complete challenge", async () => {
     const challenge = await Challenge.deployed();
 
@@ -82,6 +89,7 @@ contract('Challenge', function(accounts) {
     assert.equal(eventEmitted, true, "should emit CompleteChallenge event");
   });
 
+  /* the contract can extract ether in case it expired or the challenge has been failed */
   it("should be able to flush ether from completed challenge", async () => {
     const challenge = await Challenge.deployed();
 
@@ -105,6 +113,7 @@ contract('Challenge', function(accounts) {
     assert.equal(eventEmitted, true, "should emit FlushBalance event");
   });
 
+  /* the contract implements a circuit-breaker pattern */
   it("should restrict state change on paused switch", async () => {
     const challenge = await Challenge.deployed();
 
